@@ -11,7 +11,7 @@ env:
    app_repo: https://github.com/expenseapp-001/expense-backend.git
    login_host: dev-rds.c93whrwsdihk.us-east-1.rds.amazonaws.com
    login_user: admin1 
-   login_password: ExpenseApp@1
+   login_password: ExpenseApp123
    schema_file: /app/schema/backend.sql
    bu: expense
 
