@@ -1,6 +1,6 @@
 ARGO_URL=$(kubectl get svc -n argocd|grep argocd-server |grep LoadBalancer | awk  '{print $4}')
 ARGO_PWD=$(kubectl get secret argocd-initial-admin-secret -n argocd-initial-admin-secret -o json -n argocd | jq '.data.password'| xargs | base64 -d)
-argocd login $ARGO_URL  --username admin --password $ARGO_PWD --insecure
+argocd login $ARGO_URL  --username admin --password $ARGO_PWD 
 
 echo "creating dev backend app"
 argocd app create backend --repo https://github.com/B58-CloudDevOps/expense-helm.git --path . --dest-namespace default --dest-server https://kubernetes.default.svc --values dev/backend.yaml --sync-policy auto
