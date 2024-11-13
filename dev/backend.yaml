@@ -15,4 +15,4 @@ env:
    schema_file: /app/schema/backend.sql
    bu: expense
 
-schemaLoaderEnabled: true 
+schemaLoaderEnabled: true
