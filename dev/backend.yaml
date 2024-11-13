@@ -10,8 +10,8 @@ env:
    DB_HOST: mysql-svc 
    app_repo: "https://github.com/expenseapp-001/expense-backend.git"
    login_host: mysql-svc
-   login_user: root 
-   login_password: ExpenseApp@1
+   login_user: admin 
+   login_password: ExpenseApp123
    schema_file: /app/schema/backend.sql
    bu: expense
 
