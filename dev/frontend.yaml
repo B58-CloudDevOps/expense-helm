@@ -1,0 +1,13 @@
+appName: frontend
+port: 80
+
+serviceType: LoadBalancer
+servicePort: 80
+
+
+replicas: 1
+
+env: 
+  bu: expense 
+
+schemaLoaderEnabled: false 
