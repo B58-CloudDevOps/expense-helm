@@ -3,7 +3,7 @@ ARGO_PWD=$(kubectl get secret argocd-initial-admin-secret -n argocd-initial-admi
 argocd login $ARGO_URL  --username admin --password $ARGO_PWD --insecure
 
 echo "creating dev backend app"
-argocd app create backend --repo https://github.com/B58-CloudDevOps/expense-helm.git --path . --dest-namespace default --dest-server https://kubernetes.default.svc --values dev/backend.yaml
+argocd app create backend --repo https://github.com/B58-CloudDevOps/expense-helm.git --path . --dest-namespace default --dest-server https://kubernetes.default.svc --values dev/backend.yaml --sync-policy auto
 
 echo "creating dev frontend app"
-argocd app create frontend --repo https://github.com/B58-CloudDevOps/expense-helm.git --path . --dest-namespace default --dest-server https://kubernetes.default.svc --values dev/frontend.yaml
+argocd app create frontend --repo https://github.com/B58-CloudDevOps/expense-helm.git --path . --dest-namespace default --dest-server https://kubernetes.default.svc --values dev/frontend.yaml --sync-policy auto
