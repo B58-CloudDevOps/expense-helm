@@ -8,7 +8,7 @@ metadata:
 spec:
   ingressClassName: "nginx"
   rules:
-  - host: "frontend.cloudapps.today"
+  - host: "expense.cloudapps.today"
     http:
       paths:
       - path: "/"
