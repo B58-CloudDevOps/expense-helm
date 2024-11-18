@@ -11,3 +11,4 @@ env:
   bu: expense 
 
 schemaLoaderEnabled: false 
+ingressEnabled: true
