@@ -18,4 +18,5 @@ echo "Deployment of ${2} ${3} version to ${1} eks cluster"
 argocd app set ${2} --parameter imageTag=${3}
 
 echo "Deployment of version ${3} is completed"
+argocd app wait ${2}
 kubectl get pods | grep ${2}
