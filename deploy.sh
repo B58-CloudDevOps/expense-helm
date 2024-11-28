@@ -7,5 +7,9 @@ ARGO_URL="argocd.cloudapps.today"
 ARGO_PWD=$(kubectl get secret argocd-initial-admin-secret -n argocd-initial-admin-secret -o json -n argocd | jq '.data.password'| xargs | base64 -d)
 argocd login $ARGO_URL  --username admin --password $ARGO_PWD
 
-echo "creating ${1} ${2} app"
-argocd app create ${2} --repo https://github.com/B58-CloudDevOps/expense-helm.git --path . --dest-namespace default --dest-server https://kubernetes.default.svc --values ${1}/${2}.yaml --sync-policy auto  --grpc-web
+argocd app list |grep "argocd/${2}"
+if [ $? -ne 0 ]; then
+    echo "creating ${1} ${2} app"
+    argocd app create ${2} --repo https://github.com/B58-CloudDevOps/expense-helm.git --path . --dest-namespace default --dest-server https://kubernetes.default.svc --values ${1}/${2}.yaml --sync-policy auto  --grpc-web
+    argocd app wait ${2}
+fi 
