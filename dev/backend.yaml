@@ -4,7 +4,7 @@ port: 8080
 serviceType: ClusterIP
 servicePort: 8080
 
-replicas: 1
+replicas: 3
 
 env: 
    DB_HOST: "dev-rds.c93whrwsdihk.us-east-1.rds.amazonaws.com"
